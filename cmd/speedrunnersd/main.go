@@ -65,7 +65,7 @@ type config struct {
 
 func configFromEnv() config {
 	cfg := config{
-		addr:      envOr("SPEEDRUNNERS_ADDR", ":23570"),
+		addr:      envOr("SPEEDRUNNERS_ADDR", ":23610"),
 		nexAuth:   envOr("SPEEDRUNNERS_NEX_AUTH", "127.0.0.1:22360"),
 		nexSecure: envOr("SPEEDRUNNERS_NEX_SECURE", "127.0.0.1:22361"),
 	}

@@ -7,7 +7,7 @@ import (
 )
 
 func TestNewNEXClientNeedsAccessKey(t *testing.T) {
-	cfg := config{addr: ":23570", nexAuth: "127.0.0.1:22360", nexSecure: "127.0.0.1:22361"}
+	cfg := config{addr: ":23610", nexAuth: "127.0.0.1:22360", nexSecure: "127.0.0.1:22361"}
 	if _, err := newNEXClient(cfg); !errors.Is(err, ErrAccessKeyMissing) {
 		t.Fatalf("newNEXClient without key = %v, want ErrAccessKeyMissing", err)
 	}
@@ -42,7 +42,7 @@ func TestConfigFromEnvDefaults(t *testing.T) {
 	t.Setenv("SPEEDRUNNERS_ACCESS_KEY", "")
 	t.Setenv("SPEEDRUNNERS_ACCESS_KEY_FILE", "")
 	cfg := configFromEnv()
-	if cfg.addr != ":23570" || cfg.nexAuth != "127.0.0.1:22360" || cfg.nexSecure != "127.0.0.1:22361" {
+	if cfg.addr != ":23610" || cfg.nexAuth != "127.0.0.1:22360" || cfg.nexSecure != "127.0.0.1:22361" {
 		t.Fatalf("defaults = %+v", cfg)
 	}
 

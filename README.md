@@ -34,7 +34,7 @@ go run ./cmd/speedrunnersd
 
 | Variable | Meaning |
 | --- | --- |
-| `SPEEDRUNNERS_ADDR` | HTTP listen address (default `:23570`; serves `/healthz`) |
+| `SPEEDRUNNERS_ADDR` | HTTP listen address (default `:23610`; serves `/healthz`) |
 | `SPEEDRUNNERS_NEX_AUTH` | switch-nex auth endpoint for this title (default `127.0.0.1:22360`) |
 | `SPEEDRUNNERS_NEX_SECURE` | switch-nex secure endpoint for this title (default `127.0.0.1:22361`) |
 | `SPEEDRUNNERS_ACCESS_KEY_FILE` | file holding the NEX access key value (outstanding — TODO-KEY) |
