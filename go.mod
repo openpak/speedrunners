@@ -1,0 +1,3 @@
+module openpak/speedrunners
+
+go 1.26.0
