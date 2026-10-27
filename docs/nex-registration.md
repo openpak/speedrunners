@@ -18,7 +18,22 @@ Wire facts sourced from `scratch/decompile-speedrunners/RECON.md` and
 | Transport | PRUDP + PRUDPLite (`prudp:/`, `prudps:/`) |
 | Protocols | Auth, SecureConnection, TicketGranting, NATTraversal (+Relay, ReportInternal), MatchMaking (+Ext, MatchmakeExtension), DataStore (+LogicServer), Ranking, Ranking2, Subscriber, Utility, Notification/NintendoNotificationEvent servers, Dns, Http, FileServer, AcquireNsaIdToken |
 | Requested port base | **22360** (auth 22360, secure 22361, healthz 22362) — free; neighbours 22350 (SSBU) and 22370 (3D World) are taken |
-| Outstanding keys | **TODO-KEY**: NEX game access key VALUE (parameter name only in strings; needs Ghidra xref in `main`). PRUDP game port and gathering/DataStore usage profile likewise pending IL2CPP dump + RMC capture |
+| Game server ID | `2C186B00` (recovered 2026-10-27, see below) |
+| Access key | `ae8528ab` (recovered 2026-10-27, see below) |
+| Outstanding | PRUDP game port and gathering/DataStore usage profile pending RMC capture on first routed boot |
+| Registry status | **REGISTERED** 2026-10-27: `switch-nexd` entry `{"speedrunners", 22360, "ae8528ab", ...}` + `bin/title-ports.json`; provenance in `switch-nex/docs/speedrunners.md` |
+
+## Key recovery (2026-10-27)
+
+Il2CppDumper on the sweep `main.nso` + `global-metadata.dat`
+(metadata v24.1) exposes named managed constants in
+`Assets.Switch.SwitchOnline`: `GAME_SERVER_ID = 739797760`
+(`0x2C186B00`), `GAME_SERVER_KEY = "ae8528ab"`. Native
+`InitFrameworkTask::Execute` (`0x34d8a0`) builds the ID into `w23`
+(`0x34db7c`/`0x34db80`, stored `[x21+0x1c]`) and the key string
+object (`0x3081E38`) at `[x21+0x20]` — same-call construction.
+Harbor reaches the online account gate; wire confirmation awaits a
+linked test account.
 
 ## Registration notes
 
