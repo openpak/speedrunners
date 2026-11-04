@@ -1,6 +1,6 @@
 # Changelog — speedrunners
 
-## v0.1.0 — unreleased
+## v0.1.0 — 2026-11-04
 
 - `speedrunnersd`: title front door for SpeedRunners (`0100C8B00C4AE000`, NEX
   4.6.3 + PiaNex 5.18.0). Env-driven config (NEX auth/secure endpoints,
